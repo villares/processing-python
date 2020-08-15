@@ -1,4 +1,6 @@
 .DS_Store
+*.properties
+*.class
 applet
 application.linux-arm64
 application.linux-armv6hf
