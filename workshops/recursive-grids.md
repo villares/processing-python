@@ -1,5 +1,7 @@
 #### Exploring recursive grids with Processing Python mode
 
+![](assets/sketch_2020_06_18a.gif)
+
 Recursion in computation allows for creating intricate and often fractal-like forms with relatively little code.  *Processing Python mode* is a less well known programming tool from the Processing Foundation supported ecosystem (with better known siblings *P5js* and *Processing Java mode*, formerly named "Standard mode").
 
 In two live-coding based 3-hour sessions the participants will be presented with this generative theme of recursive grids and will have some time to experiment and ask questions.
