@@ -18,7 +18,12 @@
 
 ##### Examples of Processing Java libraries ported to Processing Python Mode
 
-	- ...
+	- TODO: descriptions go here...
 
+##### Related repositories
 
-
+- Processing Python Mode Playground https://github.com/villares/py.processing-play
+- Arc tangents & bezier studies github.com/villares/arc_tangents_and_bezier_studies
+- Paper objects with Processing and Python https://github.com/villares/Paper-objects-with-Processing-and-Python
+- Lousa mágica (Processing + Firmata + Arduino + pots) https://github.com/villares/lousa-magica
+- Rabiscopad (A bare-bones SVG sketchpad) https://github.com/villares/rabiscopad
