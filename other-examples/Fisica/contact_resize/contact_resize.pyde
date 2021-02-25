@@ -1,10 +1,7 @@
 """
- *    ContactRemove
- *
- *    by Ricard Marxer
- *
- *    This example shows how to use the contact events in order to remove bodies.
- """
+ContactRemove  by Ricard Marxer
+This example shows how to use the contact events in order to remove bodies.
+"""
 add_library('fisica')
 
 from fisica import Fisica, FWorld, FCircle, FContact

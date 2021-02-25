@@ -59,4 +59,4 @@ def keyPressed():
     elif key == CODED and keyCode == CONTROL:
         saveFrame("screenshot.png")
     else:
-        msg += key
+        msg += str(key)
