@@ -6,6 +6,7 @@
  *    This example shows how to create bodies.
  *    It also demonstrates the use of bodies as buttons.
  """
+add_library('fisica')
 from fisica import Fisica, FWorld, FBox, FCircle, FPoly
 
 boxButton = None

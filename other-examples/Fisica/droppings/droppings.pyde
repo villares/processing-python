@@ -7,7 +7,7 @@
  *        <a href=http:#www.balldroppings.com/>BallDroppings</a>
  *             by Josh Nimoy.
  """
-
+add_library('fisica')
 from fisica import FWorld, Fisica, FCircle, FBody, FBox
 
 mundo, caja = None, None

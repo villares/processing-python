@@ -5,6 +5,7 @@
  *
  *    This example shows how to use the raycasts.
  """
+add_library('fisica')
 from fisica import Fisica, FWorld, FBody, FBox, FRaycastResult
 
 #import org.jbox2d.common.*

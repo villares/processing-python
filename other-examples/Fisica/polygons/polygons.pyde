@@ -1,10 +1,8 @@
 """
- *    Polygons
- *
- *    by Ricard Marxer
- *
- *    This example shows how to create polygon bodies.
- """
+Polygons by Ricard Marxer
+This example shows how to create polygon bodies.
+"""
+add_library('fisica')
 from fisica import Fisica, FWorld, FPoly, FBody
 
 world, poly = None, None

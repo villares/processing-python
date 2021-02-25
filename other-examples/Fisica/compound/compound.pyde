@@ -6,6 +6,7 @@
  *    This example shows how to create compound bodies
  *    which are bodies made of multiple shapes.
  """
+add_library('fisica')
 from fisica import Fisica, FWorld, FCompound, FCircle, FBox
 
 world, pop, cage = None, None, None

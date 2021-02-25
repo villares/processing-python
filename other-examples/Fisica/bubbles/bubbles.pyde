@@ -1,10 +1,8 @@
 """
- *    Buttons and bodies
- *
- *    by Ricard Marxer
- *
- *    This example shows how to create a blob.
- """
+Bubbles by Ricard Marxer
+This example shows how to create a blob.
+"""
+add_library('fisica')
 from fisica import Fisica, FWorld, FPoly, FBlob
 
 world = None

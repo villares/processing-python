@@ -5,6 +5,8 @@
  *
  *    This example shows how to use the contact events in order to remove bodies.
  """
+add_library('fisica')
+
 from fisica import Fisica, FWorld, FCircle, FContact
 
 world = None

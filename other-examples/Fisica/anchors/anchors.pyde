@@ -1,11 +1,10 @@
 """
- *    Anchors and the bridge
- *
- *    by Ricard Marxer
+ *    Anchors and the bridge by Ricard Marxer
  *
  *    This example shows the use of anchors and distance joints in order
  *    to create a bridge.
  """
+add_library('fisica')
 from fisica import Fisica, FBody, FBox, FWorld, FCircle, FDistanceJoint
 
 frequency = 5

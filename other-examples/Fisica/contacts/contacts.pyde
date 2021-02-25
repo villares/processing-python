@@ -7,6 +7,7 @@
  *  This example shows how to use the contact events.
  */
 """
+add_library('fisica')
 import fisica
 
 world = None

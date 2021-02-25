@@ -1,10 +1,8 @@
 """
- *    Restitutions
- *
- *    by Ricard Marxer
- *
- *    This example shows how the restitution coefficients works.
- """
+Restitutions by Ricard Marxer
+This example shows how the restitution coefficients works.
+"""
+add_library('fisica')
 from fisica import Fisica, FWorld, FCircle
 
 world = None

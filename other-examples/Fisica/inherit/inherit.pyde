@@ -1,3 +1,4 @@
+add_library('fisica')
 from fisica import Fisica, FWorld, FBox
 
 class Texto(FBox):

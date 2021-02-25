@@ -15,6 +15,7 @@
  *    Note that a density of 0.0 corresponds to a mass of 0 and the body will be
  *    considered static.
  """
+add_library('fisica')
 from fisica import FWorld, Fisica, FCircle
 
 world = None
