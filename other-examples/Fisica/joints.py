@@ -1,10 +1,9 @@
 """
- *    Joints
- *
+ *    Joints 
  *    by Ricard Marxer
- *
  *    This example shows how to access all the joints of a given body.
- """
+"""
+add_library('fisica')
 from fisica import Fisica, FWorld, FCircle, FDistanceJoint, FJoint
 
 bodyColor = color(0x6E, 0x05, 0x95)
