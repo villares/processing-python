@@ -23,7 +23,7 @@ def setup():
     size(640, 360)
     pg = createGraphics(160, 90)
 
-    # frame.setTitle("Processing.py")
+    this.surface.setTitle("Processing.py")
 
 
 def draw():
