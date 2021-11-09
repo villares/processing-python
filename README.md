@@ -1,4 +1,5 @@
 <div></div>
+
 ---
 
 ### Teaching materials, mostly based on Processing Python mode ([repository](https://github.com/villares/processing-python))
@@ -10,6 +11,10 @@
 - Browser based alternatives include: BrythonIDE and SkulptIDE from prof. Claudio Esperança or Trinket.io
 - Check out [pyp5js](github.com/berinhard/pyp5js) a Python to JavaScript+P5js trancriptor
 - [A table comparing Processing + Python tools](https://github.com/villares/Resources-for-teaching-programming)
+
+#### License information
+
+Much of this code is adapted/ported from Processing examples and Processing library examples, usually under Apache 2.0 or MIT license, please forgive me for not adding more precise information, and check orginal sources as indicated. 
 
 #### Maybe you know Processing (Java), or Python?
 
