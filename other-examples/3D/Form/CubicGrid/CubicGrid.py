@@ -1,47 +1,49 @@
-from java.lang import System 
-System.setProperty("jogl.disable.openglcore", "false") 
+from java.lang import System
+System.setProperty("jogl.disable.openglcore", "false")
 """
-    Cubic Grid 
-    by Ira Greenberg. 
+    Cubic Grid
+    by Ira Greenberg.
 
     3D translucent colored grid uses nested pushMatrix()
-    and popMatrix() functions. 
+    and popMatrix() functions.
 """
-boxSize = 40
-margin = boxSize*2
+box_size = 40
+margin = box_size*2
 depth = 400
+
 
 def setup():
     size(640, 360, P3D)
-    noStroke()
+    no_stroke()
+
 
 def draw():
     background(255)
-  
+
     # Center and spin grid
     translate(width/2, height/2, -depth)
-    rotateY(frameCount * 0.01)
-    rotateX(frameCount * 0.01)
-    
+    rotate_y(frame_count * 0.01)
+    rotate_x(frame_count * 0.01)
+
     # Build grid using multiple translations
     i = -depth/2+margin
     while i <= depth/2-margin:
-        pushMatrix()
+        push_matrix()
         j = -height+margin
         while j <= height-margin:
-            pushMatrix()
+            push_matrix()
             k = -width + margin
             while k <= width-margin:
-                # Base fill color on counter values, abs function 
+                # Base fill color on counter values, abs function
                 # ensures values stay within legal range
-                boxFill = color(abs(i), abs(j), abs(k), 50)
-                pushMatrix()
+                box_fill = color(abs(i), abs(j), abs(k), 50)
+                push_matrix()
                 translate(k, j, i)
-                fill(boxFill)
-                box(boxSize, boxSize, boxSize)
-                popMatrix()
-                k += boxSize
-            popMatrix()
-            j += boxSize
-        popMatrix()
-        i += boxSize    
+                fill(box_fill)
+                box(box_size, box_size, box_size)
+                pop_matrix()
+                k += box_size
+            pop_matrix()
+            j += box_size
+        pop_matrix()
+        i += box_size
