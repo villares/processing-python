@@ -12,7 +12,6 @@ words = [
     "waiting to be read..."
 ]
 
-
 def setup():
     size(640, 360, P3D)
     hint(DISABLE_DEPTH_TEST)
