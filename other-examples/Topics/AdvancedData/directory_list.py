@@ -12,11 +12,13 @@
 from datetime import datetime
 import os
 
+
 def sizeof_fmt(num):
     for fmt in ['%3d bytes', '%3dK', '%3.1fM', '%3.1fG']:
         if num < 1024.0:
             return fmt % num
         num /= 1024.0
+
 
 def print_file_details(f, depth=0):
     if os.path.basename(f)[0] == '.':
@@ -30,14 +32,16 @@ def print_file_details(f, depth=0):
                                     mtime.strftime("%Y-%m-%d %H:%M:%S"))
         print "%-30s %s" % (os.path.basename(f), info)
 
+
 def list_recursively(f, depth=0):
     if os.path.basename(f)[0] == '.':
-        return # no dotfiles
+        return  # no dotfiles
     print_file_details(f, depth)
     if os.path.isdir(f):
         for g in os.listdir(f):
             path = os.path.join(f, g)
             list_recursively(path, depth + 1)
+
 
 topdir = os.getcwd()
 
