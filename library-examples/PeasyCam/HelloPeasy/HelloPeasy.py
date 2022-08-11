@@ -1,13 +1,12 @@
-add_library('peasycam')
-
+from peasy import PeasyCam
 
 def setup():
     global cam
     size(200, 200, P3D)
+    this = get_current_sketch()
     cam = PeasyCam(this, 100)
-    cam.set_minimum_distance(50)
-    cam.set_maximum_distance(500)
-
+    cam.setMinimumDistance(50)
+    cam.setMaximumDistance(500)
 
 def draw():
     rotate_x(-.5)
