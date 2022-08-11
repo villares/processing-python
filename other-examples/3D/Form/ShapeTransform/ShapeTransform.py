@@ -1,5 +1,5 @@
-from java.lang import System
-System.setProperty("jogl.disable.openglcore", "false")
+from java.lang import System 
+System.setProperty("jogl.disable.openglcore", "false") 
 """
   Shape Transform
   by Ira Greenberg.
@@ -17,65 +17,60 @@ System.setProperty("jogl.disable.openglcore", "false")
 
 # constants
 radius = 99
-cylinder_length = 95
-angle_inc = PI / 300.0
+cylinderLength = 95
+angleInc = PI / 300.0
 
 # globals that can be chaned by the user
 pts = 12
-is_pyramid = False
-
+isPyramid = False
 
 def setup():
     size(640, 360, OPENGL)
-    no_stroke()
-
+    noStroke()
 
 def draw():
     background(170, 95, 95)
     lights()
     fill(255, 200, 200)
     translate(width / 2, height / 2)
-    rotate_x(frame_count * angle_inc)
-    rotate_y(frame_count * angle_inc)
-    rotate_z(frame_count * angle_inc)
+    rotateX(frameCount * angleInc)
+    rotateY(frameCount * angleInc)
+    rotateZ(frameCount * angleInc)
 
-    d_theta = TWO_PI / pts
-    def x(j): return cos(d_theta * j) * radius
-    def y(j): return sin(d_theta * j) * radius
+    dTheta = TWO_PI / pts
+    x = lambda(j): cos(dTheta * j) * radius
+    y = lambda(j): sin(dTheta * j) * radius
 
     # draw cylinder tube
-    begin_shape(QUAD_STRIP)
+    beginShape(QUAD_STRIP)
     for j in range(pts + 1):
-        vertex(x(j), y(j), cylinder_length)
-        if is_pyramid:
-            vertex(0, 0, -cylinder_length)
+        vertex(x(j), y(j), cylinderLength)
+        if isPyramid:
+            vertex(0, 0, -cylinderLength)
         else:
-            vertex(x(j), y(j), -cylinder_length)
-    end_shape()
-    # draw cylinder ends
-    begin_shape()
+            vertex(x(j), y(j), -cylinderLength)
+    endShape()
+    #draw cylinder ends
+    beginShape()
     for j in range(pts + 1):
-        vertex(x(j), y(j), cylinder_length)
-    end_shape(CLOSE)
-    if not is_pyramid:
-        begin_shape()
+        vertex(x(j), y(j), cylinderLength)
+    endShape(CLOSE)
+    if not isPyramid:
+        beginShape()
         for j in range(pts + 1):
-            vertex(x(j), y(j), -cylinder_length)
-        end_shape(CLOSE)
-
+            vertex(x(j), y(j), -cylinderLength)
+        endShape(CLOSE)
 
 """
  up/down arrow keys control
  polygon detail.
  """
-
-
-def key_pressed():
-    global pts, is_pyramid
+def keyPressed():
+    global pts, isPyramid
     if key == CODED:
-        if key_code == UP and pts < 90:
+        if keyCode == UP and pts < 90:
             pts += 1
-        elif key_code == DOWN and pts > 4:
+        elif keyCode == DOWN and pts > 4:
             pts -= 1
     elif key == 'p':
-        is_pyramid = not is_pyramid
+        isPyramid = not isPyramid

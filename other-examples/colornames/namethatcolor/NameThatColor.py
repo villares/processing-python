@@ -7,8 +7,7 @@ Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the conditions in LICENSE.txt are met
 """
 from collections import namedtuple
-import os
-import re
+import os, re
 ColorInfo = namedtuple('ColorInfo',
                        ' '.join(['hex_value', 'name', 'red', 'green', 'blue',
                                  'hue', 'saturation', 'lightness']))
@@ -21,7 +20,6 @@ HSL = namedtuple('HSL', ' '.join(['hue', 'saturation', 'lightness']))
 class NameThatColor(object):
     """Utility for finding the closest "human readable" name for a hex color
     """
-
     def __init__(self, colorfile=None):
         import csv
 
@@ -130,7 +128,6 @@ class NameThatColor(object):
                    int(saturation * 255),
                    int(lightness * 255))
 
-
 def main():
     import json
     import argparse
@@ -144,9 +141,9 @@ def main():
 
     format_choices = {
         'json': lambda r: json.dumps(r),
-        'raw': lambda r: r
+        'raw' : lambda r: r
     }
-
+    
     parser = argparse.ArgumentParser(
         description="Find the closest known color name for a hex value")
 
@@ -156,16 +153,12 @@ def main():
     parser.add_argument('target',
                         help="hex value of the color to search for")
 
-    parser.add_argument(
-        '-o',
-        '--output',
-        dest="output",
-        nargs='*',
-        choices=output_choices.keys(),
-        default=[
-            'match_hex',
-            'match_name'],
-        help="what information about the color match to output")
+    parser.add_argument('-o', '--output',
+                        dest="output",
+                        nargs='*',
+                        choices=output_choices.keys(),
+                        default=['match_hex', 'match_name'],
+                        help="what information about the color match to output")
 
     parser.add_argument('--format',
                         dest="format",
@@ -181,7 +174,6 @@ def main():
     for choice in args.output:
         result[choice] = output_choices[choice](match)
     print format_choices[args.format](result)
-
 
 if __name__ == '__main__':
     main()

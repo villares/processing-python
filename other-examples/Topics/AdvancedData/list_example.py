@@ -10,16 +10,15 @@
 """
 
 balls = []
-ball_width = 48
+ballWidth = 48
 
 # Simple bouncing ball class
 
-
 class Ball:
-    def __init__(self, temp_x, temp_y, temp_w):
-        self.x = temp_x
-        self.y = temp_y
-        self.w = temp_w
+    def __init__(self, tempX, tempY, tempW):
+        self.x = tempX
+        self.y = tempY
+        self.w = tempW
         self.speed = 0
         self.gravity = 0.1
         self.life = 255
@@ -45,18 +44,16 @@ class Ball:
     def display(self):
         # Display the circle
         fill(0, self.life)
-        # stroke(0,life)
+        #stroke(0,life)
         ellipse(self.x, self.y, self.w, self.w)
-
 
 def setup():
     size(200, 200)
     smooth()
-    no_stroke()
+    noStroke()
 
     # Start by adding one element
-    balls.append(Ball(width / 2, 0, ball_width))
-
+    balls.append(Ball(width / 2, 0, ballWidth))
 
 def draw():
     background(255)
@@ -68,7 +65,6 @@ def draw():
         if ball.finished():
             balls.remove(ball)
 
-
-def mouse_pressed():
+def mousePressed():
     # A new ball object is added to the list (by default to the end)
-    balls.append(Ball(mouse_x, mouse_y, ball_width))
+    balls.append(Ball(mouseX, mouseY, ballWidth))

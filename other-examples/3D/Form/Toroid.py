@@ -4,7 +4,7 @@
 
  Illustrates the geometric relationship between Toroid, Sphere, and Helix
  3D primitives, as well as lathing principal.
-
+ 
  Instructions:
  UP arrow key pts++
  DOWN arrow key pts--
@@ -23,38 +23,36 @@ radius = 60.0
 
 # lathe segments
 segments = 60
-lathe_radius = 100.0
+latheRadius = 100.0
 
 # for shaded or wireframe rendering
-is_wire_frame = False
+isWireFrame = False
 
 # for optional helix
-is_helix = False
-helix_offset = 5.0
+isHelix = False
+helixOffset = 5.0
 
 # The extruded shape as a list of quad strips
 strips = []
 
-
 def setup():
     size(640, 360, OPENGL)
 
-
 def extrude():
-    d_theta = TWO_PI / pts
-    helical_offset = 0
-    if is_helix:
-        helical_offset = - (helix_offset * segments) / 2
-    vertices = [[lathe_radius + sin(d_theta * x) * radius,
-                 cos(d_theta * x) * radius + helical_offset]
-                for x in range(pts + 1)]
+    dTheta = TWO_PI / pts
+    helicalOffset = 0
+    if isHelix:
+        helicalOffset = - (helixOffset * segments) / 2
+    vertices = [[latheRadius + sin(dTheta * x) * radius,
+                 cos(dTheta * x) * radius + helicalOffset]
+                 for x in range(pts + 1)]
     vertices2 = [[0.0, 0.0, 0.0] for x in range(pts + 1)]
 
     # draw toroid
-    lathe_angle = 0
-    d_theta = TWO_PI / segments
-    if is_helix:
-        d_theta *= 2
+    latheAngle = 0
+    dTheta = TWO_PI / segments
+    if isHelix:
+        dTheta *= 2
     for i in range(segments + 1):
         verts = []
         for j in range(pts + 1):
@@ -62,17 +60,16 @@ def extrude():
             if i > 0:
                 verts.append(v2[:])
 
-            v2[0] = cos(lathe_angle) * vertices[j][0]
-            v2[1] = sin(lathe_angle) * vertices[j][0]
+            v2[0] = cos(latheAngle) * vertices[j][0]
+            v2[1] = sin(latheAngle) * vertices[j][0]
             v2[2] = vertices[j][1]
             # optional helix offset
-            if is_helix:
-                vertices[j][1] += helix_offset
+            if isHelix:
+                vertices[j][1] += helixOffset
 
             verts.append(v2[:])
         strips.append(verts)
-        lathe_angle += d_theta
-
+        latheAngle += dTheta
 
 def draw():
     if not len(strips):
@@ -84,26 +81,26 @@ def draw():
 
     # 2 rendering styles
     # wireframe or solid
-    if is_wire_frame:
+    if isWireFrame:
         stroke(255, 255, 150)
-        no_fill()
+        noFill()
     else:
-        no_stroke()
+        noStroke()
         fill(150, 195, 125)
 
-    text("%s" % frame_rate, 20, 40)
-    # center and spin toroid
+    text("%s" % frameRate, 20, 40)
+    #center and spin toroid
     translate(width / 2, height / 2, -100)
-    rotate_x(frame_count * PI / 150)
-    rotate_y(frame_count * PI / 170)
-    rotate_z(frame_count * PI / 90)
+    rotateX(frameCount * PI / 150)
+    rotateY(frameCount * PI / 170)
+    rotateZ(frameCount * PI / 90)
 
     # draw toroid
     for strip in strips:
-        begin_shape(QUAD_STRIP)
+        beginShape(QUAD_STRIP)
         for v in strip:
             vertex(v[0], v[1], v[2])
-        end_shape()
+        endShape()
 
 
 """
@@ -114,35 +111,33 @@ def draw():
  'w' key toggles between wireframe and solid
  'h' key toggles between toroid and helix
  """
-
-
-def key_pressed():
-    global pts, segments, is_helix, is_wire_frame, lathe_radius, radius
-
+def keyPressed():
+    global pts, segments, isHelix, isWireFrame, latheRadius, radius
+    
     # clear the list of strips, to force a re-evaluation
     del strips[:]
 
     if key == CODED:
         # pts
-        if key_code == UP:
+        if keyCode == UP:
             if pts < 40:
                 pts += 1
-        elif key_code == DOWN:
+        elif keyCode == DOWN:
             if pts > 3:
                 pts -= 1
         # extrusion length
-        if key_code == LEFT:
+        if keyCode == LEFT:
             if segments > 3:
                 segments -= 1
-        elif key_code == RIGHT:
+        elif keyCode == RIGHT:
             if segments < 80:
                 segments += 1
     # lathe radius
     elif key == 'a':
-        if lathe_radius > 0:
-            lathe_radius -= 1
+        if latheRadius > 0:
+            latheRadius -= 1
     elif key == 's':
-        lathe_radius += 1
+        latheRadius += 1
     # ellipse radius
     elif key == 'z':
         if radius > 10:
@@ -151,7 +146,7 @@ def key_pressed():
         radius += 1
     # wireframe
     elif key == 'w':
-        is_wire_frame = not is_wire_frame
+        isWireFrame = not isWireFrame
     # helix
     elif key == 'h':
-        is_helix = not is_helix
+        isHelix = not isHelix
