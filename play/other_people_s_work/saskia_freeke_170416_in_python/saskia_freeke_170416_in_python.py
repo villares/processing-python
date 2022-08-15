@@ -8,11 +8,9 @@ CC BY-SA https://creativecommons.org/licenses/by-sa/3.0/
 max_frame_count = 150.0  # needs to be a float
 a = 106
 
-
 def setup():
     size(540, 540, P2D)
     no_fill()
-
 
 def draw():
     background('#1F1F1F')
@@ -31,7 +29,6 @@ def draw():
                 else:
                     stroke('#9A5584')
                     poly_shape(x, y, 10, sz2)
-
 
 def poly_shape(xPos, yPos, pOne, pTwo):
     with push_matrix():

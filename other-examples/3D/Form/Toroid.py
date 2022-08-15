@@ -45,7 +45,7 @@ def extrude():
     helical_offset = 0
     if is_helix:
         helical_offset = - (helix_offset * segments) / 2
-    vertices = [[lathe_radius + sin(d_theta * x) * radius,
+    vertices1 = [[lathe_radius + sin(d_theta * x) * radius,
                  cos(d_theta * x) * radius + helical_offset]
                 for x in range(pts + 1)]
     vertices2 = [[0.0, 0.0, 0.0] for x in range(pts + 1)]
@@ -62,12 +62,12 @@ def extrude():
             if i > 0:
                 verts.append(v2[:])
 
-            v2[0] = cos(lathe_angle) * vertices[j][0]
-            v2[1] = sin(lathe_angle) * vertices[j][0]
-            v2[2] = vertices[j][1]
+            v2[0] = cos(lathe_angle) * vertices1[j][0]
+            v2[1] = sin(lathe_angle) * vertices1[j][0]
+            v2[2] = vertices1[j][1]
             # optional helix offset
             if is_helix:
-                vertices[j][1] += helix_offset
+                vertices1[j][1] += helix_offset
 
             verts.append(v2[:])
         strips.append(verts)
@@ -91,7 +91,7 @@ def draw():
         no_stroke()
         fill(150, 195, 125)
 
-    text("%s" % frame_rate, 20, 40)
+    text(f'{get_frame_rate()}', 20, 40)
     # center and spin toroid
     translate(width / 2, height / 2, -100)
     rotate_x(frame_count * PI / 150)
