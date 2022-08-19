@@ -31,5 +31,5 @@ def draw():
                 ANG += ANG_INCREMENT
 
     if frame_count < 1000:
-        print frame_count
+        print(frame_count)
         save_frame("export/###.png")

@@ -13,7 +13,7 @@ def setup():
     no_stroke()
     smooth()
     rect_mode(CENTER)
-    # print PFont.list()
+    # print(PFont.list())
     f = create_font("Tomorrow Bold", 80)
     colunas = int(width / tam_celula)
     filas = int(height / tam_celula)

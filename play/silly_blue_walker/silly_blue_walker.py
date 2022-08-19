@@ -32,7 +32,7 @@ def draw():
 
 def key_pressed():
     save_frame()
-    print "Imagem salva na pasta do sketch!"
+    print("Imagem salva na pasta do sketch!")
 
 
 def mouse_clicked():

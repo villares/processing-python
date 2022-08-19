@@ -29,6 +29,6 @@ def draw():
                 ANG += 0.0015
 
     if frameCount < 1000:
-        print frameCount
+        print(frameCount)
         # saveFrame("###.png")
          """
