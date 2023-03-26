@@ -1,11 +1,11 @@
 def setup():
-    print(multiline_pane())
+    print(multiline_pane('hey!', 'text\nhere'))
 
 
 def multiline_pane(title='', default=''):
     from javax.swing import JOptionPane, JScrollPane, JTextArea
     ta = JTextArea(20, 20)
-    ta.set_text(default)
+    ta.setText(default)
     result = JOptionPane.showConfirmDialog(None,
                                            JScrollPane(ta),
                                            title,
@@ -14,6 +14,6 @@ def multiline_pane(title='', default=''):
                                            # JOptionPane.QUESTION_MESSAGE
                                            )
     if result == JOptionPane.OK_OPTION:
-        return ta.get_text()
+        return str(ta.getText())
     else:
         return default

@@ -1,5 +1,3 @@
-from java.lang import System
-System.setProperty("jogl.disable.openglcore", "false")
 """
   Shape Transform
   by Ira Greenberg.
@@ -26,7 +24,7 @@ is_pyramid = False
 
 
 def setup():
-    size(640, 360, OPENGL)
+    size(640, 360, P3D)
     no_stroke()
 
 
