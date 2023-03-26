@@ -1,6 +1,3 @@
-from __future__ import unicode_literals
-
-
 def setup():
     size(400, 300)
     print(option_pane("Escolha uma opção",
