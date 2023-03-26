@@ -29,9 +29,8 @@ I recomend using **py5** with [thonny-py5mode plug-in for the Thonny IDE](). Als
 - Arc tangents & bezier studies github.com/villares/arc_tangents_and_bezier_studies
 - Paper objects with Processing and Python https://github.com/villares/Paper-objects-with-Processing-and-Python
 - Lousa mágica (Processing + Firmata + Arduino + pots) https://github.com/villares/lousa-magica
-- Rabiscopad (A bare-bones SVG sketchpad) https://github.com/villares/rabiscopad
-- Processing Python Mode Playground https://github.com/villares/py.processing-play
+- Portuguese language materials at https://github.com/villares/material-aulas
 
 #### License information
 
-Much of this code is adapted/ported from Processing examples and Processing library examples, usually under Apache 2.0 or MIT license, please forgive me for not adding more precise information, and check orginal sources as indicated. 
+Much of this code is adapted/ported from Processing examples and Processing library examples, usually under Apache 2.0 or MIT license, please forgive me for not adding more precise information, and check individual file comments.
