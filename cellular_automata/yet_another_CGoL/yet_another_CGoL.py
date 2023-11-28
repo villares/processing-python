@@ -25,10 +25,10 @@ last_cell = 0
 
 def setup():
     global grid, next_grid, rows, cols
-    size(800, 500)
+    size(800, 800)
     no_stroke()
-    rows = height / cell_size
-    cols = width / cell_size
+    rows = height // cell_size
+    cols = width // cell_size
     grid = empty_grid()
     next_grid = empty_grid()
     randomize_grid()
@@ -56,7 +56,7 @@ def draw():
                 result = rule(current_state, ngbs_alive)
                 next_grid[i][j] = result
 
-    if play and frame_count % sample == 0 and not mouse_pressed:
+    if play and frame_count % sample == 0 and not is_mouse_pressed:
         step()
 
 
@@ -96,6 +96,7 @@ def randomize_grid():
 
 
 def step():
+    print(frame_count)
     global grid, next_grid
     grid = next_grid
     next_grid = empty_grid()
@@ -121,7 +122,7 @@ def key_released():
         sample = max(sample - 1, 1)
     if key == '-':
         sample += 1
-
+    # print(play, sample, key)
 
 def mouse_pressed():
     paint()
