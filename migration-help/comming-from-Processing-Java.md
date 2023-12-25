@@ -4,16 +4,15 @@
 
 We hope you enjoy using the Processing graphics vocabulary, now with Python 3.
 
-## The slightly different names
+## The slightly different *snake_case* names
 
-The first thing you might notice is how the Processing function/method names you were used to had the Java community convention of *camelCase* and now use the Python community *snake_case* convention.
--  `mouseX` becomes `mouse_x` , and `noFill()` becomes `no_fill()`
-- You might be surprised that the global `mousePressed` variable becomes `is_mouse_pressed` but the event function users can define, `void mousePressed(){ ...`, in Java, is now defined  as `def mouse_pressed(): ...`.
-- Also `keyPressed`, `is_key_pressed` for the variable, and `key_pressed` for the event function.
-- Processing's `map(value, start, end, target_start, target_end)` is [`remap()`](https://py5coding.org/reference/sketch_remap.htm)  because of Python's [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map)
-- Processing's  `filter()` is `apply_filter()`
-- Processing's `get()` and`set()` for pixelas, are `get_pixels()` and `set_pixels(), but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html)
-- Use `frame_rate()` to [set a target frame rate](https://py5coding.org/reference/sketch_frame_rate.html) and `get_frame_rate()` to find out the current frame rate ([an exponential moving average]
+The first thing you might notice is how the Processing function/method names you were used to followed the Java community's convention called *camelCase* and on py5 they use the Python community's *snake_case* convention: `mouseX` becomes `mouse_x`, and `noFill()` becomes `no_fill()`, etc.
+- You might be surprised that the global `mousePressed` variable becomes `is_mouse_pressed` but the event function users can define, in Java `void mousePressed(){ ...`, should now defined as `def mouse_pressed(): ...`.
+  - This is because in Python the namespace for variables and function names is the same. Note also that `keyPressed` becomes `is_key_pressed` for the variable, and `key_pressed()` for the event function.
+- Processing's `map(value, start, end, target_start, target_end)` is [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map).
+  - likewise Processing's `filter()` becomes `apply_filter()`.
+- Processing's `get()` and`set()` for pixels became `get_pixels()` and `set_pixels(), but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html).
+- No more `frameRate`, use `frame_rate()` to [set a target frame rate](https://py5coding.org/reference/sketch_frame_rate.html) and `get_frame_rate()` to find out the current frame rate ([an exponential moving average](https://py5coding.org/reference/sketch_get_frame_rate.html?highlight=get_frame_rate)).
 
 [Please hava a look at the Reference Summary here](https://py5coding.org/reference/summary.html)
 
@@ -23,6 +22,10 @@ No more `import processing.pdf.*;` or `add_library('pdf')` needed for PDF or SVG
 On the other hand, you can now import Python libraries with `import`.
 
 ## More tips for porting Processing Java code to py5
+
+Maybe you want to port some existing Processing Java code to Python + py5? 
+
+The following tips should help you with the most common issues.
 
 ### Getting started
 
