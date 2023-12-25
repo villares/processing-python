@@ -12,7 +12,7 @@ Another thing you should know is that the global `mousePressed` variable becomes
 
 This is because in Python the namespace for variable names and function names is the same. Note also that `keyPressed` becomes `is_key_pressed` for the variable, and `key_pressed()` for the event function.
 
-Processing's `map(value, start, end, target_start, target_end)` is now [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map). Likewise, `filter()` becomes [`apply_filter()`](https://py5coding.org/reference/sketch_apply_filter.htm)`.
+Processing's `map(value, start, end, target_start, target_end)` is now [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map). Likewise, `filter()` becomes [`apply_filter()`](https://py5coding.org/reference/sketch_apply_filter.htm).
 
 Processing's `get()` and `set()` functions to manipulate pixels become `get_pixels()` and `set_pixels()`, but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html). That's because, in Python, `set()` creates a [*set* data structure](https://docs.python.org/3/tutorial/datastructures.html#sets).
 
