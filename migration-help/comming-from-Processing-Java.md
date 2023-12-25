@@ -16,11 +16,20 @@ The first thing you might notice is how the Processing function/method names you
 
 **Please have a look at the [Reference Summary](https://py5coding.org/reference/summary.html), it will help you find any missing names**
 
+## How about the P-Classes?
+
+Most of Processing high-level objects, like `PFont` for typographic fonts, or `PImage`, for image buffers, have an equivalent, a wrapper, in py5. So `Py5Font` does whatever `PFont` does, and `Py5Image` everything `PImage` does. 
+
+Then, there is some bonus stuff, `Py5Image` brings in a very helpful new [`numpy` interface for an "array of pixels"](https://py5coding.org/reference/py5image_np_pixels.html).
+
+And then, if you used `PVector`, know that `Py5Vector` is a completly new implementation of vector objects, 2D, 3D and 4D, so it has some different conventions for attributes and names, you won't regret reading the [Py5Vector documentation](https://py5coding.org/reference/py5vector.html).
+
 ## About the libraries 
 
 No`import processing.pdf.*;` is needed for using the PDF features, same with the SVG export, but for other Processing Java libraries... it could be more complicated. Have a look at this [Camera3D tutorial](https://py5coding.org/how_tos/use_camera3D.html). 
 
 On the other hand, you can now import Python libraries with the `import` statement, you'll also need it to bring in functions and classes from other *modules* (files) if you split your sketch into several `.py` files.
+
 
 ## More tips for porting Processing Java code to py5
 
@@ -89,31 +98,43 @@ for (float angle=0; angle < TWO_PI; angle += angleStep){
 }
 ```
 
-**Pyton**
+**Python**
 
-Defining a 'special' range generator:
- 
+Using a `while` loop
+
 ```python
-def frange(start, stop, step):
-    from itertools import count, takewhile
-    return takewhile(lambda x: x < stop, count(start, step))
+angle_step = TWO_PI / 18
+angle = 0
+while angle < TWO_PI:
+    …
+    angle += angle_step
+```
 
+Another option would be to define a 'special' range generator:
+
+```python
+def frange(start, stop=None, step=1):
+    if stop is None:
+        stop, start = start, 0
+    assert step != 0, "step can't be zero"
+    invalid_limit_error_message =  (
+        'start must be smaller than stop for positive step'
+        if step > 0 else
+        'stop must be smaller than start for negative step'
+    )
+    assert stop > start if step > 0 else stop < start, invalid_limit_error_message
+    count = start
+    while count < stop:
+        yield count
+        count += step
+
+# and then frange in use...
 step = TWO_PI / 18
 for angle in frange(0, TWO_PI, step):
     …    
 ```
 
-Or converting to a `while` loop:
-
-```python
-angleStep = TWO_PI / 18
-angle = 0
-while angle < TWO_PI:
-    …
-    angle += angleStep
-```
-
-Here an example of a loop made just to get objects from a data structure:
+Now an example of a loop made just to get objects from a data structure:
 
 ```java
 for (int i = 0; i < my_array.length; i ++) {
@@ -150,17 +171,16 @@ for (int i = particles.size() - 1; i >= 0; i--) {
 **Python**
 
 ```python
-for i in reversed(range(len(particles))):
-    p = particles[i]
+for i, p in reversed(list(enumerate(particles))):
     p.run()
     if p.is_dead():
         del particles[i]
 ```
-
-or:
+or maybe:
 
 ```python
-for i, p in reversed(list(enumerate(particles))):
+for i in reversed(range(len(particles))):
+    p = particles[i]
     p.run()
     if p.is_dead():
         del particles[i]
@@ -218,7 +238,7 @@ result = a if cond else b
 
 #### switch & case
 
-Until recently there was nothing like Java's `switch / case` in Python, now from Python 3.10 onwards we get the `match` construct that could be used to translate that, but some people still frowm upon it. You can arguably convert Java code with `switch` to sequence of `if / elif` or, if just to call different functions, a function dictionary.
+Until recently there was nothing like Java's `switch / case` in Python, now from Python 3.10 onwards we get the [`match / case`](https://docs.python.org/3.10/whatsnew/3.10.html#pep-634-structural-pattern-matching) construct that could be used to translate that, but some people still frown upon it. You can arguably convert Java code with `switch / case` to a sequence of `if / elif` or, if just to call different functions, a function dictionary.
 
 **Java**
 ```java
@@ -251,7 +271,22 @@ else:
     println("Not found")  
 ```
 
-`# TO DO: example for switch case as a dicr()`
+You might want to try a dictionary strategy.
+
+```python
+func = {
+    'r': rect,
+    'e': ellipse,
+    't': (lambda x, y, w, h:
+          triangle(x, y, x + w, y, x, y + h)),
+    } 
+
+def setup():
+  size(400, 400)
+
+def draw():
+    func.get(key, func['r'])(100, 100, 200, 50)
+```
 
 ### Global variables
 
@@ -521,13 +556,14 @@ def setup():
 
 #### 2D Arrays
 
+**Java** 
+
 ```java
 int[][] board;
 board = new int[grid_w][grid_h]
 ```
-Use a list of lists! No, you don't *need* numpy 2D arrays in Processing Python mode (and you don't have them...).
 
-Here's how to initialize the quivalent to a Java 2D array of ints using a list comprehension. 
+**Python** 
 
 ```Python
 board = [[0] * grid_w for _ in range(grid_h)]
@@ -535,12 +571,21 @@ board = [[0] * grid_w for _ in range(grid_h)]
 
 Instead of `0` it could be a `None` placeholder or any calculated value if the structure will hold other things.
 
-`# TO DO:`
+**Python with [numpy](https://numpy.org)**
+
+```python
+import numpy as np
+
+board = np.zeros((2, 3))
+print(board)
+# array([[0., 0., 0.],
+#        [0., 0., 0.]]
+```
+
+#### Other things (WIP)
 
 - `HashMap` and `FloatDict`, are *mapping* data structures in Java, they become dictionaries (`dict`) in Python.
 
 - If an *array* or an `ArrayList` is used to retain some kind o 'history', you might want to learn about `deque` (`from collections import deque`).
 
 - Very simple classes in Java might suitably become just a *named tuple*.
-
-
