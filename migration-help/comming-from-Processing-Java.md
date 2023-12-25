@@ -10,9 +10,9 @@ The first thing you might notice is how the Processing function/method names you
 - You might be surprised that the global `mousePressed` variable becomes `is_mouse_pressed` but the event function users can define, in Java `void mousePressed(){ ...`, should now defined as `def mouse_pressed(): ...`.
   - This is because in Python the namespace for variables and function names is the same. Note also that `keyPressed` becomes `is_key_pressed` for the variable, and `key_pressed()` for the event function.
 - Processing's `map(value, start, end, target_start, target_end)` is [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map).
-  - likewise Processing's `filter()` becomes `apply_filter()`.
+  - likewise Processing's `filter()` becomes [`apply_filter()](https://py5coding.org/reference/sketch_apply_filter.htm)`.
 - Processing's `get()` and`set()` for pixels became `get_pixels()` and `set_pixels()`, but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html).
-- No more `frameRate`, use the `frame_rate()` function to [set a target frame rate](https://py5coding.org/reference/sketch_frame_rate.html) and the `get_frame_rate()` function to find out the current frame rate ([an exponential moving average](https://py5coding.org/reference/sketch_get_frame_rate.html?highlight=get_frame_rate)).
+- No more `frameRate`, use the [`frame_rate()`](https://py5coding.org/reference/sketch_frame_rate.html) function to set a target frame rate and the [`get_frame_rate()`](https://py5coding.org/reference/sketch_get_frame_rate.html) function to find out the current frame rate (an exponential moving average).
 
 **Please have a look at the [Reference Summary](https://py5coding.org/reference/summary.html), it will help you find any missing names**
 
