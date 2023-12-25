@@ -1,4 +1,4 @@
-# py5 tips for those comming from Processing Java
+# py5 tips for those coming from Processing Java
 
 **Welcome!**
 
