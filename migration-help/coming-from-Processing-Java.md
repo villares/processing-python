@@ -12,9 +12,9 @@ Another thing you should know is that the global `mousePressed` variable becomes
 
 This is because in Python the namespace for variable names and function names is the same. Note also that `keyPressed` becomes `is_key_pressed` for the variable, and `key_pressed()` for the event function.
 
-Processing's `map(value, start, end, target_start, target_end)` is now [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map). Likewise, `filter()` becomes [`apply_filter()](https://py5coding.org/reference/sketch_apply_filter.htm)`.
+Processing's `map(value, start, end, target_start, target_end)` is now [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map). Likewise, `filter()` becomes [`apply_filter()`](https://py5coding.org/reference/sketch_apply_filter.htm)`.
 
-Processing's `get()` and `set()` functions to manipulate pixels become `get_pixels()` and `set_pixels()`, but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html).
+Processing's `get()` and `set()` functions to manipulate pixels become `get_pixels()` and `set_pixels()`, but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html). That's because, in Python, `set()` creates a [*set* data structure](https://docs.python.org/3/tutorial/datastructures.html#sets).
 
 Instead of `frameRate`, use the [`frame_rate()`](https://py5coding.org/reference/sketch_frame_rate.html) function to set a target frame rate and the [`get_frame_rate()`](https://py5coding.org/reference/sketch_get_frame_rate.html) function to find out the current frame rate (an exponential moving average).
 
@@ -38,7 +38,7 @@ On the other hand, you can now import Python libraries with the `import` stateme
 
 Maybe you want to port some existing Processing Java code to Python + py5?  The following tips should help you with the most common issues.
 
-### Getting started on quick code conversions
+### Getting started on quick code conversions!
 
 - As you probably know already, Python uses indentation to place code lines 'inside' a function definition and in many other code nesting structures. In Java the braces`{}` rule, but it is common for the indentation to also reflect the code hierachy, even if this is not mandatory, so use the IDE auto-formatting tool before you start, and take care!
 
@@ -395,6 +395,7 @@ if (str1.equals(str2)) {
   println("not equal"); 
 }
 ```
+
 **Comparing *strings* in Python**
 
 ```python
@@ -406,15 +407,16 @@ if str1 == str2:
 else:
   println("not equal")
 ```
+
 ### Importing libraries and using multiple tabs in your sketch
 
 In Processing Java mode the libraries are imported with `import` but in Python mode this instruction is more often used to import *modules* from the *Python standard library*, and **.py** files in the same folder (which, unlike in Java mode, are not automatically a part of the sketch).
 
 ```python
-from other_file import *  # everything from the file other_tab.py
+from other_file import *  # everything from the file other.py
 ```
 
-### Object orientation
+### Object Orientation
 
 #### Getting an instance and access to its methods and attributes
 
@@ -444,11 +446,12 @@ def setup():
 
 #### Declaring a class
 
-Class declarations change slightly, roughly, the `def __init__(self …): …` method plays the role of the *constructor* method definition of a Java class (the method with the same name as the class, that does the object initialization).
+Class declarations change slightly, roughly, the `def __init__(self …): …` method plays the same initialization role of the *constructor* method of a Java class (the method with the same name as the class). Strictly, the `__init__()` method, which we read like "dunder init", is not a constructor, but you don't have to worry about it. If you are curious, read more about Python's "data model" at the [Python docs](https://docs.python.org/3/reference/datamodel.html#basic-customization).
 
-You'll have to add `self` as the first parameter of each method, and then use `self.` to access it's members, any methods or attributes of the class or instance.
+By convention, you'll add `self` as the first parameter of each method, and then use `self.` to access it's members, any methods or attributes, of the class or instance.
 
 Let's see the `MRect` class in the example **Basics > Objects > Objects** that comes with the Processing IDE. 
+
 **Java**
 
 ```java
