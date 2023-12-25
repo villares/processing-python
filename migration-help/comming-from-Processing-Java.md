@@ -7,12 +7,16 @@ We hope you enjoy using the Processing graphics vocabulary, now with Python 3.
 ## The slightly different *snake_case* names
 
 The first thing you might notice is how the Processing function/method names you were used to followed the Java community's convention called *camelCase* and on py5 they use the Python community's *snake_case* convention: `mouseX` becomes `mouse_x`, and `noFill()` becomes `no_fill()`, etc.
-- You might be surprised that the global `mousePressed` variable becomes `is_mouse_pressed` but the event function users can define, in Java `void mousePressed(){ ...`, should now defined as `def mouse_pressed(): ...`.
-  - This is because in Python the namespace for variables and function names is the same. Note also that `keyPressed` becomes `is_key_pressed` for the variable, and `key_pressed()` for the event function.
-- Processing's `map(value, start, end, target_start, target_end)` is [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map).
-  - likewise Processing's `filter()` becomes [`apply_filter()](https://py5coding.org/reference/sketch_apply_filter.htm)`.
-- Processing's `get()` and`set()` for pixels became `get_pixels()` and `set_pixels()`, but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html).
-- No more `frameRate`, use the [`frame_rate()`](https://py5coding.org/reference/sketch_frame_rate.html) function to set a target frame rate and the [`get_frame_rate()`](https://py5coding.org/reference/sketch_get_frame_rate.html) function to find out the current frame rate (an exponential moving average).
+
+Another thing you should know is that the global `mousePressed` variable becomes `is_mouse_pressed` and the event function we define for a "mouse pressed event", that in Java would be written `void mousePressed(){ ...`, should now defined as `def mouse_pressed(): ...`.
+
+This is because in Python the namespace for variable names and function names is the same. Note also that `keyPressed` becomes `is_key_pressed` for the variable, and `key_pressed()` for the event function.
+
+Processing's `map(value, start, end, target_start, target_end)` is now [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map). Likewise, `filter()` becomes [`apply_filter()](https://py5coding.org/reference/sketch_apply_filter.htm)`.
+
+Processing's `get()` and `set()` functions to manipulate pixels become `get_pixels()` and `set_pixels()`, but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html).
+
+Instead of `frameRate`, use the [`frame_rate()`](https://py5coding.org/reference/sketch_frame_rate.html) function to set a target frame rate and the [`get_frame_rate()`](https://py5coding.org/reference/sketch_get_frame_rate.html) function to find out the current frame rate (an exponential moving average).
 
 **Please have a look at the [Reference Summary](https://py5coding.org/reference/summary.html), it will help you find any missing names**
 
@@ -22,7 +26,7 @@ Most of Processing high-level objects, like `PFont` for typographic fonts, or `P
 
 Then, there is some bonus stuff, `Py5Image` brings in a very helpful new [`numpy` interface for an "array of pixels"](https://py5coding.org/reference/py5image_np_pixels.html).
 
-And then, if you used `PVector`, know that `Py5Vector` is a completly new implementation of vector objects, 2D, 3D and 4D, so it has some different conventions for attributes and names, you won't regret reading the [Py5Vector documentation](https://py5coding.org/reference/py5vector.html).
+If you are used tp `PVector`, please note that `Py5Vector` is a completly new implementation of vector objects, 2D, 3D and 4D, so it has some different conventions for attributes and names, you won't regret reading the [Py5Vector documentation](https://py5coding.org/reference/py5vector.html).
 
 ## About the libraries 
 
@@ -30,12 +34,11 @@ No`import processing.pdf.*;` is needed for using the PDF features, same with the
 
 On the other hand, you can now import Python libraries with the `import` statement, you'll also need it to bring in functions and classes from other *modules* (files) if you split your sketch into several `.py` files.
 
-
 ## More tips for porting Processing Java code to py5
 
 Maybe you want to port some existing Processing Java code to Python + py5?  The following tips should help you with the most common issues.
 
-### Getting started
+### Getting started on quick code conversions
 
 - As you probably know already, Python uses indentation to place code lines 'inside' a function definition and in many other code nesting structures. In Java the braces`{}` rule, but it is common for the indentation to also reflect the code hierachy, even if this is not mandatory, so use the IDE auto-formatting tool before you start, and take care!
 
