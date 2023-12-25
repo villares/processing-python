@@ -26,7 +26,7 @@ Most of Processing high-level objects, like `PFont` for typographic fonts, or `P
 
 Then, there is some bonus stuff, `Py5Image` brings in a very helpful new [`numpy` interface for an "array of pixels"](https://py5coding.org/reference/py5image_np_pixels.html).
 
-If you are used tp `PVector`, please note that `Py5Vector` is a completly new implementation of vector objects, 2D, 3D and 4D, so it has some different conventions for attributes and names, you won't regret reading the [Py5Vector documentation](https://py5coding.org/reference/py5vector.html).
+If you are used tp `PVector`, please note that `Py5Vector` is a completly new implementation of vector objects, 2D, 3D and 4D, so it has some different method & attribute names, you won't regret reading the [Py5Vector documentation](https://py5coding.org/reference/py5vector.html).
 
 ## About the libraries 
 
