@@ -11,21 +11,20 @@ The first thing you might notice is how the Processing function/method names you
   - This is because in Python the namespace for variables and function names is the same. Note also that `keyPressed` becomes `is_key_pressed` for the variable, and `key_pressed()` for the event function.
 - Processing's `map(value, start, end, target_start, target_end)` is [`remap()`](https://py5coding.org/reference/sketch_remap.htm) because there is a Python built-in [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map).
   - likewise Processing's `filter()` becomes `apply_filter()`.
-- Processing's `get()` and`set()` for pixels became `get_pixels()` and `set_pixels(), but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html).
-- No more `frameRate`, use `frame_rate()` to [set a target frame rate](https://py5coding.org/reference/sketch_frame_rate.html) and `get_frame_rate()` to find out the current frame rate ([an exponential moving average](https://py5coding.org/reference/sketch_get_frame_rate.html?highlight=get_frame_rate)).
+- Processing's `get()` and`set()` for pixels became `get_pixels()` and `set_pixels()`, but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html).
+- No more `frameRate`, use the `frame_rate()` function to [set a target frame rate](https://py5coding.org/reference/sketch_frame_rate.html) and the `get_frame_rate()` function to find out the current frame rate ([an exponential moving average](https://py5coding.org/reference/sketch_get_frame_rate.html?highlight=get_frame_rate)).
 
-[Please hava a look at the Reference Summary here](https://py5coding.org/reference/summary.html)
+**Please have a look at the [Reference Summary](https://py5coding.org/reference/summary.html), it will help you find any missing names**
 
 ## About the libraries 
 
-No more `import processing.pdf.*;` or `add_library('pdf')` needed for PDF or SVG. For other Processing libraries... it could be more complicated. (TODO: write or link to more info about using jars)
-On the other hand, you can now import Python libraries with `import`.
+No`import processing.pdf.*;` is needed for using the PDF features, same with the SVG export, but for other Processing Java libraries... it could be more complicated. Have a look at this [Camera3D tutorial](https://py5coding.org/how_tos/use_camera3D.html). 
+
+On the other hand, you can now import Python libraries with the `import` statement, you'll also need it to bring in functions and classes from other *modules* (files) if you split your sketch into several `.py` files.
 
 ## More tips for porting Processing Java code to py5
 
-Maybe you want to port some existing Processing Java code to Python + py5? 
-
-The following tips should help you with the most common issues.
+Maybe you want to port some existing Processing Java code to Python + py5?  The following tips should help you with the most common issues.
 
 ### Getting started
 
