@@ -10,12 +10,12 @@ The first thing you might notice is how the Processing function/method names you
 -  `mouseX` becomes `mouse_x` , and `noFill()` becomes `no_fill()`
 - You might be surprised that the global `mousePressed` variable becomes `is_mouse_pressed` but the event function users can define, `void mousePressed(){ ...`, in Java, is now defined  as `def mouse_pressed(): ...`.
 - Also `keyPressed`, `is_key_pressed` for the variable, and `key_pressed` for the event function.
-- [Check the reference here](https://py5coding.org/reference/summary.html)
 - Processing's `map(value, start, end, target_start, target_end)` is [`remap()`](https://py5coding.org/reference/sketch_remap.htm)  because of Python's [`map(func, iterable)`](https://docs.python.org/3/library/functions.html#map)
 - Processing's  `filter()` is `apply_filter()`
--  Processing's `set()` is complicated... You might want to read about [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html)
-
+- Processing's `get()` and`set()` for pixelas, are `get_pixels()` and `set_pixels(), but you might want to read about `np_pixels` and [`set_np_pixels()`](http://py5coding.org/reference/sketch_set_np_pixels.html)
 - Use `frame_rate()` to [set a target frame rate](https://py5coding.org/reference/sketch_frame_rate.html) and `get_frame_rate()` to find out the current frame rate ([an exponential moving average]
+
+[Please hava a look at the Reference Summary here](https://py5coding.org/reference/summary.html)
 
 ## About the libraries 
 
@@ -51,8 +51,6 @@ On the other hand, you can now import Python libraries with `import`.
   def average(a, b):
       return (a + b) / 2
   ```
-
-
 ### A table with some equivalences for conversion
 
 Boolean values in Java are named `true` and` false`, in Python they are `True` and` False`. Let's make a chart with the logical operators and some other equivalences.
@@ -101,11 +99,9 @@ def frange(start, stop, step):
 step = TWO_PI / 18
 for angle in frange(0, TWO_PI, step):
     …    
-
 ```
 
 Or converting to a `while` loop:
-
 
 ```python
 angleStep = TWO_PI / 18
@@ -115,9 +111,7 @@ while angle < TWO_PI:
     angle += angleStep
 ```
 
-
 Here an example of a loop made just to get objects from a data structure:
-
 
 ```java
 for (int i = 0; i < my_array.length; i ++) {
@@ -157,7 +151,7 @@ for (int i = particles.size() - 1; i >= 0; i--) {
 for i in reversed(range(len(particles))):
     p = particles[i]
     p.run()
-    if p.isDead():
+    if p.is_dead():
         del particles[i]
 ```
 
@@ -166,7 +160,7 @@ or:
 ```python
 for i, p in reversed(list(enumerate(particles))):
     p.run()
-    if p.isDead():
+    if p.is_dead():
         del particles[i]
 ```
 
@@ -191,6 +185,7 @@ for (int i = 2; i < width-2; i += 2) {
 ```
 
 **Python**
+
 ```python
 for i in range(2, width - 2, 2):
     # If 'i' divides by 20 with no remainder
@@ -221,7 +216,7 @@ result = a if cond else b
 
 #### switch & case
 
-There is no `switch / case` in Python, you can change it to a sequence of `if / elif` or, if just to call different functions, a function dictionary.
+Until recently there was nothing like Java's `switch / case` in Python, now from Python 3.10 onwards we get the `match` construct that could be used to translate that, but some people still frowm upon it. You can arguably convert Java code with `switch` to sequence of `if / elif` or, if just to call different functions, a function dictionary.
 
 **Java**
 ```java
@@ -331,14 +326,6 @@ def draw ():
 
 ### Strings
 
-If your code contains *non-ASCII* strings (like letters with accents or emojis) it can be a good idea to start your sketch with:
-
-```python
-from __future__ import unicode_literals
-```
-
-Otherwise you'll have to precede those strings with `u` like this: `u"Éclair"`.
-
 **Type *char* in Java**
 
 Java has a special type for characters, *char*, with literals written in code with single quotes `' '`, Python makes no such distinction, using single character *strings* (in `key`, for instance) and single or double quotes for *strings* in general. 
@@ -381,32 +368,10 @@ else:
 ```
 ### Importing libraries and using multiple tabs in your sketch
 
-In Processing Java mode the libraries are imported with `import` but in Python mode this instruction is more often used to import *modules* from the *Python standard library*, and **.py** files presented as other IDE tabs (which, unlike in Java mode, are not automatically a part of the sketch).
-
-To import standard Processing libraries, use the menu command **Sketch > Import Library...**  to create the line with `add_library()` and the correct argument.
-
-**Java**
-
-```java
-import com.hamoid.*; // import VideoExport library in Java mode
-```
-
-**Python**
+In Processing Java mode the libraries are imported with `import` but in Python mode this instruction is more often used to import *modules* from the *Python standard library*, and **.py** files in the same folder (which, unlike in Java mode, are not automatically a part of the sketch).
 
 ```python
-add_library ('VideoExport') # the same VideoExport library in Python mode
-```
-
-To use multiple tabs in Python mode, treat them like Python modules and use `import`.
-
-```python
-from other_tab import *  # a tab from the file other_tab.py
-```
-
-If the tab contain *non-ASCII* characters you have to add this special comment at the top of it:
-
-```python
-# -*- coding: utf-8 -*-
+from other_file import *  # everything from the file other_tab.py
 ```
 
 ### Object orientation
