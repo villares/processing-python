@@ -7,9 +7,9 @@
 > Older Processing Python mode stuff kept for posterity at https://github.com/villares/processing-python/tree/Processing-Python-mode
 > For Portuguese-language materials visit [material-aulas](https://abav.lugaralgum.com/material-aulas)
 
-#### What is it, and [**how to install py5**](https://abav.lugaralgum.com/como-instalar-py5/index-EN.html)
+#### What is it, and how to install `py5`
 
-I recomend using **py5** with [thonny-py5mode plug-in for the Thonny IDE](). Also, check out [pyp5js](github.com/berinhard/pyp5js) for Pyodide + p5js in the browser and [a table comparing other Processing + Python tools](https://github.com/villares/Resources-for-teaching-programming)
+I recomend using [**py5** with the *thonny-py5mode* plug-in for the *Thonny IDE*](https://abav.lugaralgum.com/como-instalar-py5/index-EN.html). Also, check out [pyp5js-py5mode](https://abav.lugaralgum.com/pyp5js/py5mode) for Pyodide + p5js in the browser and [a table comparing other Processing + Python tools](https://github.com/villares/Resources-for-teaching-programming)
 
 
 #### Summary materials
@@ -18,19 +18,19 @@ I recomend using **py5** with [thonny-py5mode plug-in for the Thonny IDE](). Als
 
 ##### Tutorials
 
--
+	- TODO: summary should go here...
 
 ##### Examples
 
--
+	- TODO: summary should go here...
 
 #### Related repositories
 
-- Arc tangents & bezier studies github.com/villares/arc_tangents_and_bezier_studies
-- Paper objects with Processing and Python https://github.com/villares/Paper-objects-with-Processing-and-Python
-- Lousa mágica (Processing + Firmata + Arduino + pots) https://github.com/villares/lousa-magica
-- Portuguese language materials at https://github.com/villares/material-aulas
+- [Arc tangents & bezier studies](https://github.com/villares/arc_tangents_and_bezier_studies)
+- [Paper objects with Processing and Python](https://github.com/villares/Paper-objects-with-Processing-and-Python)
+- [Lousa mágica - Drawing with Arduino & pots](https://github.com/villares/lousa-magica)
+- Portuguese-language teaching materials at https://github.com/villares/material-aulas
 
 #### License information
 
-Much of this code is adapted/ported from Processing examples and Processing library examples, usually under Apache 2.0 or MIT license, please forgive me for not adding more precise information, and check individual file comments.
+Some of the code here is adapted/ported from Processing examples and Processing library examples, usually under Apache 2.0 or MIT license, please forgive me for not adding more precise information, and check individual file comments.
