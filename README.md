@@ -4,9 +4,6 @@
 
 ### Teaching materials for Processing and Python (with py5) ([repository](https://github.com/villares/processing-python))
 
-> Older Processing Python mode stuff kept for posterity at https://github.com/villares/processing-python/tree/Processing-Python-mode
-> For Portuguese-language materials visit [material-aulas](https://abav.lugaralgum.com/material-aulas)
-
 #### What is it, and how to install `py5`
 
 I recomend using [**py5** with the *thonny-py5mode* plug-in for the *Thonny IDE*](https://abav.lugaralgum.com/como-instalar-py5/index-EN.html). Also, check out [pyp5js-py5mode](https://abav.lugaralgum.com/pyp5js/py5mode) for Pyodide + p5js in the browser and [a table comparing other Processing + Python tools](https://github.com/villares/Resources-for-teaching-programming)
@@ -34,3 +31,8 @@ I recomend using [**py5** with the *thonny-py5mode* plug-in for the *Thonny IDE*
 #### License information
 
 Some of the code here is adapted/ported from Processing examples and Processing library examples, usually under Apache 2.0 or MIT license, please forgive me for not adding more precise information, and check individual file comments.
+
+---
+
+> Older Processing Python mode stuff kept for posterity at https://github.com/villares/processing-python/tree/Processing-Python-mode
+
